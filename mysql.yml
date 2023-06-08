@@ -1,0 +1,15 @@
+version: '1.0'
+services:
+  db:
+    image: mysql
+    restart: always
+    environment:
+      - MYSQL_DATABASE=schooldb
+      - MYSQL_ROOT_PASSWORD=rperez
+    ports:
+      - '3306:3306'
+    volumes:
+      - db:/var/lib/mysql
+volumes:
+  db:
+    driver: local

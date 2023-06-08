@@ -1,0 +1,24 @@
+server:
+  port: 8082
+
+#We can define which profile will be using for default
+#If we can run the app with different profile we should use target/ java -jar app.jar --spring.profiles.active=pro
+spring:
+  profiles:
+    active: pro
+
+---
+spring:
+  config:
+    activate:
+      on-profile: pro
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/schooldb
+    password: rperez
+  jpa:
+    hibernate:
+      ddl-auto: update #only for test, this property creates the tables on automatic with its names
+    show-sql: 'true' #only for test
+
